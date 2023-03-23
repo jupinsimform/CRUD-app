@@ -52,7 +52,9 @@
               id="image"
               accept="image/jpg,image/jpeg,image/png,image/webp"
               placeholder="choose Product image"
+              onchange="readURL()"
             />
+            <img src="" alt="" id="image1" class="img-fluid col-md-4 my-3" />
           </div>
           <div class="form-group col-md-6 mb-3">
             <label for="price">Price</label>
@@ -90,15 +92,27 @@
         </div>
       </div>
       <hr />
+
+      <div class="row">
+        <div class="form-group offset-md-3 col-md-6 mb-2">
+          <input
+            type="search"
+            name="search"
+            id="search"
+            class="form-control"
+            placeholder="Search here by Product name ...."
+          />
+        </div>
+      </div>
       <div class="row mt-3">
         <div class="col-12">
           <table class="table table-bordered" id="crudtable">
             <thead>
-              <tr>
-                <th>Product ID</th>
-                <th>Product Name</th>
-                <th>Image</th>
-                <th>Price</th>
+              <tr class="text-center">
+                <th data-sort onclick="sortTable(0,this)">Product ID</th>
+                <th data-sort onclick="sortTable(1,this)">Product Name</th>
+                <th class="w-50">Image</th>
+                <th data-sort onclick="sortTable(3,this)">Price</th>
                 <th>Description</th>
                 <th>Actions</th>
               </tr>

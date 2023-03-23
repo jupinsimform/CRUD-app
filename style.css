@@ -1,3 +1,53 @@
 #update {
   display: none;
 }
+
+image {
+  width: 10%;
+  height: 10%;
+}
+
+table th {
+  cursor: pointer;
+  position: relative;
+  padding: 8px 12px;
+  user-select: none;
+  transition: all linear 0.16s;
+}
+
+table th[data-sort] {
+  padding: 8px 18px 8px 12px;
+}
+table td {
+  text-align: center;
+}
+
+/* table th.asc,
+table th.desc {
+  color: gray;
+} */
+
+table th[data-sort]:before,
+table th[data-sort]:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  right: 0;
+  opacity: 0.3;
+  border: 4px solid transparent;
+}
+
+table th[data-sort]:before {
+  top: 10px;
+  border-bottom-color: gray;
+}
+table th[data-sort]:after {
+  top: 20px;
+  border-top-color: gray;
+}
+
+table th.asc:before,
+table th.desc:after {
+  opacity: 1;
+}
