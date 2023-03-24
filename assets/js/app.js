@@ -221,8 +221,17 @@ function updateData(index) {
 
           document.getElementById("submit").style.display = "block";
           document.getElementById("update").style.display = "none";
-          Swal.fire("Saved!", "", "success");
+          Swal.fire("Save changes!", "", "success");
         } else if (result.isDenied) {
+          document.getElementById("product_id").value = "";
+          document.getElementById("product_name").value = "";
+          document.getElementById("image").value = "";
+          document.getElementById("image1").src = "";
+          document.getElementById("price").value = "";
+          document.getElementById("details").value = "";
+
+          document.getElementById("submit").style.display = "block";
+          document.getElementById("update").style.display = "none";
         }
       });
     }
