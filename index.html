@@ -7,7 +7,7 @@
     <title>CRUD Application</title>
     <link
       rel="shortcut icon"
-      href="./images/crud-operations.webp"
+      href="./assets/images/crud-image.png"
       type="image/x-icon"
     />
     <link
@@ -16,13 +16,15 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
   </head>
   <body>
     <div class="container">
-      <h2 class="mt-5 mb-5">CRUD Application</h2>
+      <h2 class="mt-5 mb-5">Product Management System</h2>
       <div class="mb-5">
+        <!-- Product details -->
         <div class="row">
+          <!-- Product ID -->
           <div class="form-group col-md-6 mb-3">
             <label for="product_id">Product ID</label>
             <input
@@ -33,6 +35,7 @@
               placeholder="Enter Product ID"
             />
           </div>
+          <!-- product Name -->
           <div class="form-group col-md-6 mb-3">
             <label for="product_name">Product Name</label>
             <input
@@ -43,6 +46,7 @@
               placeholder="Enter Product Name"
             />
           </div>
+          <!-- Product Image -->
           <div class="form-group col-md-6 mb-3">
             <label for="image">Image</label>
             <input
@@ -50,12 +54,13 @@
               name="image"
               class="form-control"
               id="image"
-              accept="image/jpg,image/jpeg,image/png,image/webp"
+              accept="image/*"
               placeholder="choose Product image"
               onchange="readURL()"
             />
             <img src="" alt="" id="image1" class="img-fluid col-md-4 my-3" />
           </div>
+          <!-- product Price -->
           <div class="form-group col-md-6 mb-3">
             <label for="price">Price</label>
             <input
@@ -68,6 +73,7 @@
               oninput="validity.valid||(value='');"
             />
           </div>
+          <!-- product description -->
           <div class="form-group col-md-6 mb-3">
             <label for="details">Description</label>
             <textarea
@@ -75,12 +81,16 @@
               class="form-control"
               name="details"
               placeholder="Description of Product"
+              rows="3"
             ></textarea>
           </div>
+
           <div class="col-lg-12 mt-3">
+            <!-- add button -->
             <button id="submit" class="btn btn-success" onclick="addProduct()">
               Add Product
             </button>
+            <!-- update button -->
             <button
               id="update"
               class="btn btn-primary"
@@ -93,17 +103,23 @@
       </div>
       <hr />
 
+      <!-- Search Bar -->
       <div class="row">
-        <div class="form-group offset-md-3 col-md-6 mb-2">
-          <input
-            type="search"
-            name="search"
-            id="search"
-            class="form-control"
-            placeholder="Search here by Product name ...."
-          />
+        <div class="col-md-6 mb-2">
+          <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="form-control"
+              placeholder="Search here by Product ID ...."
+            />
+          </div>
         </div>
       </div>
+
+      <!-- product List -->
       <div class="row mt-3">
         <div class="col-12">
           <table class="table table-bordered" id="crudtable">
@@ -111,9 +127,8 @@
               <tr class="text-center">
                 <th data-sort onclick="sortTable(0,this)">Product ID</th>
                 <th data-sort onclick="sortTable(1,this)">Product Name</th>
-                <th class="w-50">Image</th>
-                <th data-sort onclick="sortTable(3,this)">Price</th>
-                <th>Description</th>
+                <th data-sort onclick="sortTable(2,this)">Price</th>
+                <th class="w-50">Description</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -122,6 +137,11 @@
         </div>
       </div>
     </div>
-    <script defer src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://kit.fontawesome.com/5f35126798.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./assets/js/app.js"></script>
   </body>
 </html>
